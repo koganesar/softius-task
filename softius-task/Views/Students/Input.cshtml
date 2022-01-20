@@ -1,0 +1,13 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "Input";
+    Layout = "_Layout";
+}
+
+<h2>Введите количество сообщений студентов</h2>
+<p>через пробел</p>
+<form asp-controller="Students" asp-action="Result" method="get">
+    <input type="text" name="countsString"/>
+    <input type="submit"/>
+</form>

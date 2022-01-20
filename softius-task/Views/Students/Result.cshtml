@@ -1,0 +1,25 @@
+@using softius_task.Services
+@model ResultOutputModel
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "_Layout";
+}
+
+@if (Model.ParsingError)
+{
+    <h1>не удалось распарсить строку</h1>
+}
+else if (Model.Pairs!.First() == new StudentPair(0, 0))
+{
+    <p>не все студенты получат сообщение</p>
+}
+else
+{
+    <h1>Всего сообщений: @Model.Pairs!.Count()</h1>
+
+    foreach (var (number1, number2) in Model.Pairs!)
+    {
+        <p>@number1 @number2</p>
+    }
+}
